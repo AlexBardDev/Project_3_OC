@@ -4,3 +4,4 @@
 
 #import local library
 from characters import Guardian, Hero
+from labyrinth import Labyrinth
