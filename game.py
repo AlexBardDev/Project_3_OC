@@ -21,8 +21,8 @@ size = (600, 600)
 screen = pygame.display.set_mode(size)
 
 #Generer le laby
-board = Labyrinth(wall_image_path)
-board.generate_labyrinth(screen)
+board_game = Labyrinth(wall_image_path)
+board_game.generate_labyrinth(screen)
 
 #Generer les perso
 MacGyver = Hero(hero_image_path)

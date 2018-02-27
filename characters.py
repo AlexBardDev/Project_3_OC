@@ -16,7 +16,7 @@ class Characters:
 	def __init__(self, image_path):
 		"""My constructor"""
 
-		self.face = pygame.image.load(image_path).convert()
+		self.face = pygame.image.load(image_path).convert_alpha()
 
 
 class Guardian(Characters):
@@ -41,3 +41,4 @@ class Hero(Characters):
 		Characters.__init__(self, image_path)
 
 	#Move
+	#Take item
