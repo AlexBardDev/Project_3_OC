@@ -26,9 +26,14 @@ board.generate_labyrinth(screen)
 
 #Generer les perso
 MacGyver = Hero(hero_image_path)
-screen.blit(MacGyver.face, (200,300))
+screen.blit(MacGyver.face, (120,400))
+
+TheGuardian = Guardian(guardian_image_path)
+screen.blit(TheGuardian.face, (280,40))
 
 #Placer les objets et les perso
 
 pygame.display.flip()
 #While :
+
+input()
