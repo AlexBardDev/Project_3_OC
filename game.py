@@ -14,10 +14,14 @@ pygame.init()
 #variables
 hero_image_path = "images/Hero.png"
 hero_coordinates = (120, 360)
+
 guardian_image_path = "images/Guardian.png"
 guardian_coordinates = (280,40)
+
 tile_image_path = "images/tile.png"
 wall_image_path = "images/wall.png"
+
+needle_image_path = "images/needle.png"
 
 #Create window
 size = (600, 600)
@@ -34,7 +38,13 @@ MacGyver.position(screen, hero_coordinates, board_game.empty_places)
 TheGuardian = Guardian(guardian_image_path)
 TheGuardian.position(screen, guardian_coordinates, board_game.empty_places)
 
+#Remove 2 places that MacGyver can't reach because of the guardian
+board_game.empty_places.remove((280,0))
+board_game.empty_places.remove((320,40))
+
 #Create items
+needle = Item(needle_image_path)
+needle.position(screen, board_game.empty_places)
 
 pygame.display.flip()
 #While :
