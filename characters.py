@@ -18,6 +18,16 @@ class Characters:
 
 		self.face = pygame.image.load(image_path).convert_alpha()
 
+	def position(self, screen, coordinates, empty_places):
+		"""Function that positions the character"""
+
+		try:
+			empty_places.remove(coordinates)
+		except ValueError:
+			print("""Le personnage ne peut pas se trouver sur un mur.""")
+		else:
+			screen.blit(self.face, coordinates)
+
 
 class Guardian(Characters):
 	"""Class from which my guardian is derived"""

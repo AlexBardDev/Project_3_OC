@@ -17,9 +17,10 @@ class Labyrinth:
 
 		self.tile = tile_image_path
 		self.wall = wall_image_path
+		self.empty_places = []
 
 	def generate_labyrinth(self, screen):
-		"""function that creates the labyrinth"""
+		"""Function that creates the labyrinth"""
 
 		with open("lab.txt", "r") as data :
 			model = data.read()
@@ -32,6 +33,7 @@ class Labyrinth:
 					image_path = self.wall
 				else:
 					image_path = self.tile
+					self.empty_places.append((i,j))
 				square = pygame.image.load(image_path).convert()
 				screen.blit(square, (i,j))
 				i += 40
