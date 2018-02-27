@@ -22,6 +22,8 @@ tile_image_path = "images/tile.png"
 wall_image_path = "images/wall.png"
 
 needle_image_path = "images/needle.png"
+plastic_tube_image_path = "images/plastic_tube.png"
+ether_image_path = "images/ether.png"
 
 #Create window
 size = (600, 600)
@@ -45,6 +47,12 @@ board_game.empty_places.remove((320,40))
 #Create items
 needle = Item(needle_image_path)
 needle.position(screen, board_game.empty_places)
+
+plastic_tube = Item(plastic_tube_image_path)
+plastic_tube.position(screen, board_game.empty_places)
+
+ether = Item(ether_image_path)
+ether.position(screen, board_game.empty_places)
 
 pygame.display.flip()
 #While :
