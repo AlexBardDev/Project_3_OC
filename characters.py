@@ -5,6 +5,9 @@ import pygame
 
 #import local library
 
+#Initialization of the pygame library
+pygame.init()
+
 
 class Characters:
 	"""Class from which my characters are derived"""
@@ -13,7 +16,7 @@ class Characters:
 	def __init__(self, image_path):
 		"""My constructor"""
 
-		self.face = pygame.image.load(image_path)
+		self.face = pygame.image.load(image_path).convert()
 
 
 class Guardian(Characters):
