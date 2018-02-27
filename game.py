@@ -17,22 +17,22 @@ guardian_image_path = "images/Guardian.png"
 tile_image_path = "images/tile.png"
 wall_image_path = "images/wall.png"
 
-#Generer fenêtre
+#Create window
 size = (600, 600)
 screen = pygame.display.set_mode(size)
 
-#Generer le laby
+#Create labyrinth
 board_game = Labyrinth(tile_image_path, wall_image_path)
 board_game.generate_labyrinth(screen)
 
-#Generer les perso
+#Create characters
 MacGyver = Hero(hero_image_path)
 screen.blit(MacGyver.face, (120,360))
 
 TheGuardian = Guardian(guardian_image_path)
 screen.blit(TheGuardian.face, (280,40))
 
-#Placer les objets et les perso
+#Create items
 
 pygame.display.flip()
 #While :
