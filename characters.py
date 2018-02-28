@@ -19,15 +19,15 @@ class Characters:
 
 		self.face = pygame.image.load(image_path).convert_alpha()
 
-	def position(self, screen, coordinates, empty_places):
+	def position(self, screen, empty_places):
 		"""Function that positions the character"""
 
 		try:
-			empty_places.remove(coordinates)
+			empty_places.remove(self.coordinates)
 		except ValueError:
 			print("""Le personnage ne peut pas se trouver sur un mur.""")
 		else:
-			screen.blit(self.face, coordinates)
+			screen.blit(self.face, self.coordinates)
 
 
 class Guardian(Characters):
@@ -38,6 +38,7 @@ class Guardian(Characters):
 		"""My constructor"""
 
 		Characters.__init__(self, image_path)
+		self.coordinates = (280,40)
 
 	#Kill hero
 	
@@ -50,20 +51,22 @@ class Hero(Characters):
 		"""My constructor"""
 
 		Characters.__init__(self, image_path)
+		self.coordinates = (120, 360)
 
-	def move(self, event, coordinates, screen):
+	def move(self, event, screen):
 		"""Function that allows the movement"""
 
-		x, y = coordinates
+		x, y = self.coordinates
 		if event.key == K_UP:
-			screen.blit(self.face, (x,y-40))
+			self.coordinates = (x,y-40)
 		elif event.key == K_DOWN:
-			screen.blit(self.face, (x,y+40))
+			self.coordinates = (x,y+40)
 		elif event.key == K_RIGHT:
-			screen.blit(self.face, (x+40,y))
+			self.coordinates = (x+40,y)
 		elif event.key == K_LEFT:
-			screen.blit(self.face, (x-40,y))
+			self.coordinates = (x-40,y)
 		else:
 			pass
+		screen.blit(self.face, self.coordinates)
 
-	#Take item
+		#Take item

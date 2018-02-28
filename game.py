@@ -18,10 +18,8 @@ active = True
 screen_size = (600, 600)
 
 hero_image_path = "images/Hero.png"
-hero_coordinates = (120, 360)
 
 guardian_image_path = "images/Guardian.png"
-guardian_coordinates = (280,40)
 
 tile_image_path = "images/tile.png"
 wall_image_path = "images/wall.png"
@@ -39,10 +37,10 @@ board_game.generate_labyrinth(screen)
 
 #Create characters
 MacGyver = Hero(hero_image_path)
-MacGyver.position(screen, hero_coordinates, board_game.empty_places)
+MacGyver.position(screen, board_game.empty_places)
 
 TheGuardian = Guardian(guardian_image_path)
-TheGuardian.position(screen, guardian_coordinates, board_game.empty_places)
+TheGuardian.position(screen, board_game.empty_places)
 
 #Remove 2 places that MacGyver can't reach because of the guardian
 board_game.empty_places.remove((280,0))
@@ -65,7 +63,7 @@ while active:
 		if event.type == QUIT:
 			active = False
 		if event.type == KEYDOWN:
-			MacGyver.move(event, hero_coordinates, screen)
+			MacGyver.move(event, screen)
 
 	pygame.display.flip()
 
