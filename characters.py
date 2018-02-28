@@ -2,6 +2,7 @@
 
 #import external library
 import pygame
+from pygame.locals import *
 
 #import local library
 
@@ -50,5 +51,19 @@ class Hero(Characters):
 
 		Characters.__init__(self, image_path)
 
-	#Move
+	def move(self, event, coordinates, screen):
+		"""Function that allows the movement"""
+
+		x, y = coordinates
+		if event.key == K_UP:
+			screen.blit(self.face, (x,y-40))
+		elif event.key == K_DOWN:
+			screen.blit(self.face, (x,y+40))
+		elif event.key == K_RIGHT:
+			screen.blit(self.face, (x+40,y))
+		elif event.key == K_LEFT:
+			screen.blit(self.face, (x-40,y))
+		else:
+			pass
+
 	#Take item
