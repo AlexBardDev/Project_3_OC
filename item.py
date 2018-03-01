@@ -13,14 +13,13 @@ class Item:
 	"""Class from which my items are derived"""
 
 
-	def __init__(self, image_path):
+	def __init__(self, image_path, empty_places):
 		"""My constructor"""
 
 		self.image = pygame.image.load(image_path).convert_alpha()
+		self.coordinates = random.choice(empty_places)
 
-	def position(self, screen, empty_places):
+	def position(self, screen):
 		"""Function that positions the item"""
 
-		coordinates = random.choice(empty_places)
-		empty_places.remove(coordinates)
-		screen.blit(self.image, coordinates)
+		screen.blit(self.image, self.coordinates)

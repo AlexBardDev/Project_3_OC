@@ -47,18 +47,28 @@ board_game.empty_places.remove((280,0))
 board_game.empty_places.remove((320,40))
 
 #Create items
-needle = Item(needle_image_path)
-needle.position(screen, board_game.empty_places)
+needle = Item(needle_image_path, board_game.empty_places)
+needle.position(screen)
+board_game.empty_places.remove(needle.coordinates)
 
-plastic_tube = Item(plastic_tube_image_path)
-plastic_tube.position(screen, board_game.empty_places)
+plastic_tube = Item(plastic_tube_image_path, board_game.empty_places)
+plastic_tube.position(screen)
+board_game.empty_places.remove(plastic_tube.coordinates)
 
-ether = Item(ether_image_path)
-ether.position(screen, board_game.empty_places)
+ether = Item(ether_image_path, board_game.empty_places)
+ether.position(screen)
+board_game.empty_places.remove(ether.coordinates)
 
 pygame.display.flip()
 
 while active:
+	board_game.generate_labyrinth(screen)
+	MacGyver.position(screen, board_game.empty_places)
+	TheGuardian.position(screen, board_game.empty_places)
+	needle.position(screen)
+	plastic_tube.position(screen)
+	ether.position(screen)
+
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			active = False
