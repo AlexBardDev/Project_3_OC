@@ -25,6 +25,8 @@ needle_image_path = "images/needle.png"
 plastic_tube_image_path = "images/plastic_tube.png"
 ether_image_path = "images/ether.png"
 
+list_items = []
+
 def initialize_game():
 	"""Function that initialize the game"""
 

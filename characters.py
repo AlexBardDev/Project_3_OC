@@ -52,8 +52,9 @@ class Hero(Characters):
 		"""My constructor"""
 
 		Characters.__init__(self, image_path, coordinates)
+		self.bag = 0
 
-	def move(self, event, screen, board_game, list_coord_items):
+	def move(self, event, screen, board_game, list_items):
 		"""Function that allows the movement"""
 
 		x, y = self.coordinates
@@ -72,9 +73,14 @@ class Hero(Characters):
 			board_game.empty_places.append(self.coordinates)
 			board_game.empty_places.remove((x,y))
 			self.coordinates = (x,y)
-		elif (x,y) in list_coord_items:
-			print("ok")
+		elif (x,y) in [item.coordinates for item in list_items]:
+			self.bag += 1
+			list_items = [item for item in list_items if item.coordinates != (x,y)]
+			board_game.empty_places.append(self.coordinates)
+			self.coordinates = (x,y)
 		else:
 			pass
+
+		return list_items
 
 	#Take item

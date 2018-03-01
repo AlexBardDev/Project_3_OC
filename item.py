@@ -19,14 +19,11 @@ class Item:
 	"""Class from which my items are derived"""
 
 
-	LIST_COORDS_ITEMS = []
-
 	def __init__(self, image_path, board_game):
 		"""My constructor"""
 
 		self.image = pygame.image.load(image_path).convert_alpha()
 		self.coordinates = random.choice(board_game.empty_places)
-		Item.LIST_COORDS_ITEMS.append(self.coordinates)
 
 	def position(self, screen):
 		"""Function that positions the item"""
