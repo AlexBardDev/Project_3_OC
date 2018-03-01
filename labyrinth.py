@@ -40,7 +40,6 @@ class Labyrinth:
 					image_path = self.wall
 				else:
 					image_path = self.tile
-					self.empty_places.append((i,j))
 				square = pygame.image.load(image_path).convert()
 				screen.blit(square, (i,j))
 				i += 40
@@ -49,7 +48,22 @@ class Labyrinth:
 	def initialize_labyrinth(self, screen):
 		"""Function that initialize the labyrinth"""
 
-		self.generate_labyrinth(screen)
+		with open("models/lab.txt", "r") as data :
+			model = data.read()
+
+		j = 0
+		for line in model.split("\n"):
+			i = 0
+			for letter in line:
+				if letter == "O":
+					image_path = self.wall
+				else:
+					image_path = self.tile
+					self.empty_places.append((i,j))
+				square = pygame.image.load(image_path).convert()
+				screen.blit(square, (i,j))
+				i += 40
+			j += 40
 
 		self.empty_places.remove(coord_1)
 		self.empty_places.remove(coord_2)

@@ -29,22 +29,16 @@ board_game.initialize_labyrinth(screen)
 
 #Create characters
 MacGyver = Hero(hero_image_path, MacGyver_coordinates)
-MacGyver.position(screen)
-
 TheGuardian = Guardian(guardian_image_path, TheGuardian_coordinates)
-TheGuardian.position(screen)
 
 #Create items
-needle = Item(needle_image_path, board_game.empty_places)
-needle.position(screen)
+needle = Item(needle_image_path, board_game)
 board_game.empty_places.remove(needle.coordinates)
 
-plastic_tube = Item(plastic_tube_image_path, board_game.empty_places)
-plastic_tube.position(screen)
+plastic_tube = Item(plastic_tube_image_path, board_game)
 board_game.empty_places.remove(plastic_tube.coordinates)
 
-ether = Item(ether_image_path, board_game.empty_places)
-ether.position(screen)
+ether = Item(ether_image_path, board_game)
 board_game.empty_places.remove(ether.coordinates)
 
 pygame.display.flip()
@@ -61,7 +55,7 @@ while active:
 		if event.type == QUIT:
 			active = False
 		if event.type == KEYDOWN:
-			MacGyver.move(event, screen, board_game)
+			MacGyver.move(event, screen, board_game, Item.LIST_COORDS_ITEMS)
 
 	pygame.display.flip()
 

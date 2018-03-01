@@ -53,7 +53,7 @@ class Hero(Characters):
 
 		Characters.__init__(self, image_path, coordinates)
 
-	def move(self, event, screen, board_game):
+	def move(self, event, screen, board_game, list_coord_items):
 		"""Function that allows the movement"""
 
 		x, y = self.coordinates
@@ -72,6 +72,8 @@ class Hero(Characters):
 			board_game.empty_places.append(self.coordinates)
 			board_game.empty_places.remove((x,y))
 			self.coordinates = (x,y)
+		elif (x,y) in list_coord_items:
+			print("ok")
 		else:
 			pass
 
