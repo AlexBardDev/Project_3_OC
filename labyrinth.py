@@ -10,6 +10,7 @@ Script that creates the board game. It generates the labyrinth.
 import pygame
 
 #import local library
+from constants import *
 
 #Initialization of the pygame library
 pygame.init()
@@ -44,3 +45,13 @@ class Labyrinth:
 				screen.blit(square, (i,j))
 				i += 40
 			j += 40
+
+	def initialize_labyrinth(self, screen):
+		"""Function that initialize the labyrinth"""
+
+		self.generate_labyrinth(screen)
+
+		self.empty_places.remove(coord_1)
+		self.empty_places.remove(coord_2)
+		self.empty_places.remove(MacGyver_coordinates)
+		self.empty_places.remove(TheGuardian_coordinates)

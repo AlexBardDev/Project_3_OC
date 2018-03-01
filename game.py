@@ -12,10 +12,10 @@ import pygame
 from pygame.locals import *
 
 #import local library
-from characters import Guardian, Hero
-from labyrinth import Labyrinth
-from item import Item
 from constants import *
+from labyrinth import Labyrinth
+from characters import Guardian, Hero
+from item import Item
 
 #Initialization of the pygame library
 pygame.init()
@@ -25,18 +25,14 @@ screen = pygame.display.set_mode(screen_size)
 
 #Create labyrinth
 board_game = Labyrinth(tile_image_path, wall_image_path)
-board_game.generate_labyrinth(screen)
+board_game.initialize_labyrinth(screen)
 
 #Create characters
 MacGyver = Hero(hero_image_path, MacGyver_coordinates)
-MacGyver.position(screen, board_game.empty_places)
+MacGyver.position(screen)
 
 TheGuardian = Guardian(guardian_image_path, TheGuardian_coordinates)
-TheGuardian.position(screen, board_game.empty_places)
-
-#Remove 2 places that MacGyver can't reach because of the guardian
-board_game.empty_places.remove((280,0))
-board_game.empty_places.remove((320,40))
+TheGuardian.position(screen)
 
 #Create items
 needle = Item(needle_image_path, board_game.empty_places)
@@ -55,8 +51,8 @@ pygame.display.flip()
 
 while active:
 	board_game.generate_labyrinth(screen)
-	MacGyver.position(screen, board_game.empty_places)
-	TheGuardian.position(screen, board_game.empty_places)
+	MacGyver.position(screen)
+	TheGuardian.position(screen)
 	needle.position(screen)
 	plastic_tube.position(screen)
 	ether.position(screen)
@@ -65,7 +61,7 @@ while active:
 		if event.type == QUIT:
 			active = False
 		if event.type == KEYDOWN:
-			MacGyver.move(event, screen)
+			MacGyver.move(event, screen, board_game)
 
 	pygame.display.flip()
 

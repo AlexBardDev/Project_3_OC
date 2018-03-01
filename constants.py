@@ -14,6 +14,10 @@ MacGyver_coordinates = (120, 360)
 guardian_image_path = "images/Guardian.png"
 TheGuardian_coordinates =(280,40)
 
+#2 places that MacGyver can't reach because of the guardian
+coord_1 = (280,0)
+coord_2 = (320,40)
+
 tile_image_path = "images/tile.png"
 wall_image_path = "images/wall.png"
 

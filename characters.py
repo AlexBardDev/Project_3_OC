@@ -26,15 +26,10 @@ class Characters:
 		self.face = pygame.image.load(image_path).convert_alpha()
 		self.coordinates = coordinates
 
-	def position(self, screen, empty_places):
+	def position(self, screen):
 		"""Function that positions the character"""
 
-		try:
-			empty_places.remove(self.coordinates)
-		except ValueError:
-			print("""Le personnage ne peut pas se trouver sur un mur.""")
-		else:
-			screen.blit(self.face, self.coordinates)
+		screen.blit(self.face, self.coordinates)
 
 
 class Guardian(Characters):
@@ -58,20 +53,26 @@ class Hero(Characters):
 
 		Characters.__init__(self, image_path, coordinates)
 
-	def move(self, event, screen):
+	def move(self, event, screen, board_game):
 		"""Function that allows the movement"""
 
 		x, y = self.coordinates
 		if event.key == K_UP:
-			self.coordinates = (x,y-40)
+			y -= 40
 		elif event.key == K_DOWN:
-			self.coordinates = (x,y+40)
+			y += 40
 		elif event.key == K_RIGHT:
-			self.coordinates = (x+40,y)
+			x += 40
 		elif event.key == K_LEFT:
-			self.coordinates = (x-40,y)
+			x -= 40
 		else:
 			pass
-		screen.blit(self.face, self.coordinates)
 
-		#Take item
+		if (x,y) in board_game.empty_places:
+			board_game.empty_places.append(self.coordinates)
+			board_game.empty_places.remove((x,y))
+			self.coordinates = (x,y)
+		else:
+			pass
+
+	#Take item
