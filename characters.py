@@ -20,10 +20,11 @@ class Characters:
 	"""Class from which my characters are derived"""
 
 
-	def __init__(self, image_path):
+	def __init__(self, image_path, coordinates):
 		"""My constructor"""
 
 		self.face = pygame.image.load(image_path).convert_alpha()
+		self.coordinates = coordinates
 
 	def position(self, screen, empty_places):
 		"""Function that positions the character"""
@@ -40,11 +41,10 @@ class Guardian(Characters):
 	"""Class from which my guardian is derived"""
 
 
-	def __init__(self, image_path):
+	def __init__(self, image_path, coordinates):
 		"""My constructor"""
 
-		Characters.__init__(self, image_path)
-		self.coordinates = (280,40)
+		Characters.__init__(self, image_path, coordinates)
 
 	#Kill hero
 	
@@ -53,11 +53,10 @@ class Hero(Characters):
 	"""Class from which my hero is derived"""
 
 
-	def __init__(self, image_path):
+	def __init__(self, image_path, coordinates):
 		"""My constructor"""
 
-		Characters.__init__(self, image_path)
-		self.coordinates = (120, 360)
+		Characters.__init__(self, image_path, coordinates)
 
 	def move(self, event, screen):
 		"""Function that allows the movement"""

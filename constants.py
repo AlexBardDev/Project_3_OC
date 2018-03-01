@@ -9,8 +9,10 @@ active = True
 screen_size = (600, 600)
 
 hero_image_path = "images/Hero.png"
+MacGyver_coordinates = (120, 360)
 
 guardian_image_path = "images/Guardian.png"
+TheGuardian_coordinates =(280,40)
 
 tile_image_path = "images/tile.png"
 wall_image_path = "images/wall.png"

@@ -28,10 +28,10 @@ board_game = Labyrinth(tile_image_path, wall_image_path)
 board_game.generate_labyrinth(screen)
 
 #Create characters
-MacGyver = Hero(hero_image_path)
+MacGyver = Hero(hero_image_path, MacGyver_coordinates)
 MacGyver.position(screen, board_game.empty_places)
 
-TheGuardian = Guardian(guardian_image_path)
+TheGuardian = Guardian(guardian_image_path, TheGuardian_coordinates)
 TheGuardian.position(screen, board_game.empty_places)
 
 #Remove 2 places that MacGyver can't reach because of the guardian
