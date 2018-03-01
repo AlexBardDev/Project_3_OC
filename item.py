@@ -1,3 +1,9 @@
+"""
+Script that creates all the items of the game.
+"""
+
+#Author : Alexandre Bardiaux
+
 #import standard library
 import random
 

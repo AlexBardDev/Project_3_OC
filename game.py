@@ -1,3 +1,9 @@
+"""
+Main script of the game. Click on it to start the game.
+"""
+
+#Author : Alexandre Bardiaux
+
 #import standard library
 import sys
 

@@ -1,3 +1,9 @@
+"""
+Script that contains all the constants et 2 functions. One to initalize the game and another to play the game.
+"""
+
+#Author : Alexandre Bardiaux
+
 #Constants of the game
 active = True
 screen_size = (600, 600)

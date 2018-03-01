@@ -1,3 +1,9 @@
+"""
+Script that creates the board game. It generates the labyrinth.
+"""
+
+#Author : Alexandre Bardiaux
+
 #import standard library
 
 #import external library
