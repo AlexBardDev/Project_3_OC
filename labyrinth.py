@@ -28,7 +28,7 @@ class Labyrinth:
 	def generate_labyrinth(self, screen):
 		"""Function that creates the labyrinth"""
 
-		with open("lab.txt", "r") as data :
+		with open("models/lab.txt", "r") as data :
 			model = data.read()
 
 		j = 0
