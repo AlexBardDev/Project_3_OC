@@ -46,8 +46,7 @@ class Labyrinth:
 			j += 40
 
 		#Some special places to remove
-		self.empty_places.remove(coord_1)
-		self.empty_places.remove(coord_2)
+		self.empty_places.remove(arrival_coordinates)
 		self.empty_places.remove(MacGyver_coordinates)
 		self.empty_places.remove(TheGuardian_coordinates)
 

@@ -16,9 +16,9 @@ MacGyver_coordinates = (120, 360)
 guardian_image_path = "images/Guardian.png"
 TheGuardian_coordinates =(280,40)
 
-#2 places that MacGyver can't reach because of the guardian
-coord_1 = (280,0)
-coord_2 = (320,40)
+#2 special coordinates for MacGyver
+arrival_coordinates = (280,0)
+fight_coordinates = (320,40)
 
 needle_image_path = "images/needle.png"
 plastic_tube_image_path = "images/plastic_tube.png"

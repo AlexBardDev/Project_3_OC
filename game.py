@@ -46,8 +46,32 @@ while active:
 
 	pygame.display.flip()
 
+	if MacGyver.coordinates == fight_coordinates:
+		if MacGyver.bag == 3:
+			MacGyver.send_to_sleep(board_game, TheGuardian, arrival_coordinates)
+		else:
+			TheGuardian.kill_hero(MacGyver)
+			active = False
+
+	if MacGyver.coordinates == arrival_coordinates:
+		active = False
+	
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			active = False
 		if event.type == KEYDOWN:
-			MacGyver.move(event, screen, board_game, Item)
+			x, y = MacGyver.move(event)
+
+			if (x,y) in board_game.empty_places:
+				board_game.empty_places.remove((x,y))
+				modif = True
+			elif (x,y) in [item.coordinates for item in Item.LIST_ITEMS]:
+				MacGyver.bag += 1
+				Item.LIST_ITEMS = [item for item in Item.LIST_ITEMS if item.coordinates != (x,y)]
+				modif = True
+			else:
+				modif = False
+
+			if modif == True:
+				board_game.empty_places.append(MacGyver.coordinates)
+				MacGyver.coordinates = (x,y)

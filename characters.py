@@ -39,8 +39,10 @@ class Guardian(Characters):
 
 		Characters.__init__(self, image_path, coordinates)
 
-	#Kill hero
-	
+	def kill_hero(self, MacGyver):
+		"""Function that kills MacGyver if the guardian is not asleep"""
+
+		del MacGyver
 
 class Hero(Characters):
 	"""Class from which my hero is derived"""
@@ -52,7 +54,7 @@ class Hero(Characters):
 		Characters.__init__(self, image_path, coordinates)
 		self.bag = 0
 
-	def move(self, event, screen, board_game, Item):
+	def move(self, event):
 		"""Function that allows the movement"""
 
 		x, y = self.coordinates
@@ -67,16 +69,10 @@ class Hero(Characters):
 		else:
 			pass
 
-		if (x,y) in board_game.empty_places:
-			board_game.empty_places.remove((x,y))
-			modif = True
-		elif (x,y) in [item.coordinates for item in Item.LIST_ITEMS]:
-			self.bag += 1
-			Item.LIST_ITEMS = [item for item in Item.LIST_ITEMS if item.coordinates != (x,y)]
-			modif = True
-		else:
-			modif = False
+		return x, y
 
-		if modif == True:
-			board_game.empty_places.append(self.coordinates)
-			self.coordinates = (x,y)
+	def send_to_sleep(self, board_game, TheGuardian, arrival_coordinates):
+		"""Function that sends the guardian to sleep"""
+
+		board_game.empty_places.append(TheGuardian.coordinates)
+		board_game.empty_places.append(arrival_coordinates)
