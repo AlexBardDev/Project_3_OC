@@ -1,8 +1,9 @@
 """
 Main script of the game. Click on it to start the game.
-"""
 
-#Author : Alexandre Bardiaux
+Tha MacGyver labyrinth game. MacGyver wants to escape from the labyrinth. But he needs to put to sleep the guardian.
+For this purpose, he has to catch 3 items : a needle, a plastic_tube and some ether.
+"""
 
 #import standard library
 import sys
@@ -24,7 +25,7 @@ pygame.init()
 screen = pygame.display.set_mode(screen_size)
 
 #Create labyrinth
-board_game = Labyrinth(tile_image_path, wall_image_path)
+board_game = Labyrinth(tile_image_path, wall_image_path, model_path)
 board_game.initialize_labyrinth(screen)
 
 #Create characters
@@ -33,16 +34,9 @@ TheGuardian = Guardian(guardian_image_path, TheGuardian_coordinates)
 
 #Create items
 needle = Item(needle_image_path, board_game)
-board_game.empty_places.remove(needle.coordinates)
-
 plastic_tube = Item(plastic_tube_image_path, board_game)
-board_game.empty_places.remove(plastic_tube.coordinates)
-
 ether = Item(ether_image_path, board_game)
-board_game.empty_places.remove(ether.coordinates)
-
-pygame.display.flip()
-
+##################################################################################################
 while active:
 	board_game.generate_labyrinth(screen)
 	MacGyver.position(screen)

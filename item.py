@@ -2,8 +2,6 @@
 Script that creates all the items of the game.
 """
 
-#Author : Alexandre Bardiaux
-
 #import standard library
 import random
 
@@ -25,8 +23,16 @@ class Item:
 		"""My constructor"""
 
 		self.image = pygame.image.load(image_path).convert_alpha()
-		self.coordinates = random.choice(board_game.empty_places)
+		self.coordinates = (0,0)
+
+		self.generate_coordinates(board_game)
 		Item.LIST_ITEMS.append(self)
+
+	def generate_coordinates(self, board_game):
+		"""Function that creates the coordinates for an item"""
+
+		self.coordinates = random.choice(board_game.empty_places)
+		board_game.empty_places.remove(self.coordinates)
 
 	def position(self, screen):
 		"""Function that positions the item"""

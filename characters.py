@@ -2,8 +2,6 @@
 Script that contains the classes from which all the characters are derived.
 """
 
-#Author : Alexandre Bardiaux
-
 #import standard library
 
 #import external library
