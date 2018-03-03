@@ -53,6 +53,7 @@ class Hero(Characters):
 
 		Characters.__init__(self, image_path, coordinates)
 		self.bag = 0
+		self.win = False
 
 	def move(self, event):
 		"""Function that allows the movement"""

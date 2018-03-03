@@ -6,6 +6,7 @@ For this purpose, he has to catch 3 items : a needle, a plastic_tube and some et
 """
 
 #import standard library
+from time import sleep
 
 #import external library
 import pygame
@@ -54,6 +55,7 @@ while active:
 			active = False
 
 	if MacGyver.coordinates == arrival_coordinates:
+		MacGyver.win = True
 		active = False
 	
 	for event in pygame.event.get():
@@ -75,3 +77,14 @@ while active:
 			if modif == True:
 				board_game.empty_places.append(MacGyver.coordinates)
 				MacGyver.coordinates = (x,y)
+
+if MacGyver.win == True:
+	path = you_win
+else:
+	path = game_over
+
+panel = pygame.image.load(path).convert()
+screen.blit(panel, (100,200))
+pygame.display.flip()
+
+sleep(3)
