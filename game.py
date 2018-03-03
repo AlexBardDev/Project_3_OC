@@ -21,6 +21,10 @@ from item import Item
 #Initialization of the pygame library
 pygame.init()
 
+#Initialize and play the song
+pygame.mixer.music.load(music_path)
+pygame.mixer.music.play()
+
 #Create window
 screen = pygame.display.set_mode(screen_size)
 
@@ -38,6 +42,9 @@ plastic_tube = Item(plastic_tube_image_path, board_game)
 ether = Item(ether_image_path, board_game)
 
 while active:
+
+	if pygame.mixer.music.get_busy() == False:
+		pygame.mixer.music.play()
 
 	board_game.display_labyrinth(screen)
 	MacGyver.position(screen)
@@ -89,3 +96,6 @@ screen.blit(panel, (100,200))
 pygame.display.flip()
 
 sleep(3)
+
+#Stop the song
+pygame.mixer.music.stop()
