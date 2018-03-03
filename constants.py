@@ -25,4 +25,5 @@ plastic_tube_image_path = "images/plastic_tube.png"
 ether_image_path = "images/ether.png"
 
 you_win = "images/you_win.png"
+dead_path = "images/dead.png"
 game_over = "images/game_over.png"

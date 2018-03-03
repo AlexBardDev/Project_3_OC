@@ -51,7 +51,8 @@ while active:
 		if MacGyver.bag == 3:
 			MacGyver.send_to_sleep(board_game, TheGuardian, arrival_coordinates)
 		else:
-			TheGuardian.kill_hero(MacGyver)
+			TheGuardian.kill_hero(MacGyver, dead_path)
+			screen.blit(MacGyver.face, MacGyver.coordinates)
 			active = False
 
 	if MacGyver.coordinates == arrival_coordinates:

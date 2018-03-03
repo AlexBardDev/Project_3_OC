@@ -39,10 +39,10 @@ class Guardian(Characters):
 
 		Characters.__init__(self, image_path, coordinates)
 
-	def kill_hero(self, MacGyver):
+	def kill_hero(self, MacGyver, dead_path):
 		"""Function that kills MacGyver if the guardian is not asleep"""
 
-		del MacGyver
+		MacGyver.face = pygame.image.load(dead_path).convert_alpha()
 
 class Hero(Characters):
 	"""Class from which my hero is derived"""
