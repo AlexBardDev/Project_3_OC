@@ -6,7 +6,6 @@ For this purpose, he has to catch 3 items : a needle, a plastic_tube and some et
 """
 
 #import standard library
-import sys
 
 #import external library
 import pygame
@@ -36,20 +35,19 @@ TheGuardian = Guardian(guardian_image_path, TheGuardian_coordinates)
 needle = Item(needle_image_path, board_game)
 plastic_tube = Item(plastic_tube_image_path, board_game)
 ether = Item(ether_image_path, board_game)
-##################################################################################################
+
 while active:
-	board_game.generate_labyrinth(screen)
+
+	board_game.display_labyrinth(screen)
 	MacGyver.position(screen)
 	TheGuardian.position(screen)
 	for item in Item.LIST_ITEMS:
 		item.position(screen)
+
+	pygame.display.flip()
 
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			active = False
 		if event.type == KEYDOWN:
 			MacGyver.move(event, screen, board_game, Item)
-
-	pygame.display.flip()
-
-sys.exit()

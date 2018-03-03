@@ -45,13 +45,14 @@ class Labyrinth:
 				i += 40
 			j += 40
 
+		#Some special places to remove
 		self.empty_places.remove(coord_1)
 		self.empty_places.remove(coord_2)
 		self.empty_places.remove(MacGyver_coordinates)
 		self.empty_places.remove(TheGuardian_coordinates)
 
-	def generate_labyrinth(self, screen):
-		"""Function that creates the labyrinth"""
+	def display_labyrinth(self, screen):
+		"""Function that displays the labyrinth"""
 
 		with open(self.model, "r") as data :
 			model = data.read()

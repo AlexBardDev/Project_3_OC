@@ -68,15 +68,15 @@ class Hero(Characters):
 			pass
 
 		if (x,y) in board_game.empty_places:
-			board_game.empty_places.append(self.coordinates)
 			board_game.empty_places.remove((x,y))
-			self.coordinates = (x,y)
+			modif = True
 		elif (x,y) in [item.coordinates for item in Item.LIST_ITEMS]:
 			self.bag += 1
 			Item.LIST_ITEMS = [item for item in Item.LIST_ITEMS if item.coordinates != (x,y)]
+			modif = True
+		else:
+			modif = False
+
+		if modif == True:
 			board_game.empty_places.append(self.coordinates)
 			self.coordinates = (x,y)
-		else:
-			pass
-
-	#Take item
