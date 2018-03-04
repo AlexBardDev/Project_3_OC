@@ -1,18 +1,15 @@
 """
 Script that contains the classes from which all the characters are derived.
-"""
 
-#import standard library
+There are 3 classes. 'Characters' is the base class of all the characters. 'Guardian' and 'Hero' are derived classes from 'Characters'.
+"""
 
 #import external library
 import pygame
 from pygame.locals import *
 
-#import local library
-
 #Initialization of the pygame library
 pygame.init()
-
 
 class Characters:
 	"""Class from which my characters are derived"""
@@ -31,25 +28,25 @@ class Characters:
 
 
 class Guardian(Characters):
-	"""Class from which my guardian is derived"""
+	"""Class from which my guardian is derived. It inherits from Characters."""
 
 
 	def __init__(self, image_path, coordinates):
-		"""My constructor"""
+		"""My constructor. It calls the constructor of Characters"""
 
 		Characters.__init__(self, image_path, coordinates)
 
-	def kill_hero(self, MacGyver, dead_path):
+	def kill_hero(self, macgyver, dead_path):
 		"""Function that kills MacGyver if the guardian is not asleep"""
 
-		MacGyver.face = pygame.image.load(dead_path).convert_alpha()
+		macgyver.face = pygame.image.load(dead_path).convert_alpha()
 
 class Hero(Characters):
-	"""Class from which my hero is derived"""
+	"""Class from which my hero is derived. It inherits from Characters."""
 
 
 	def __init__(self, image_path, coordinates):
-		"""My constructor"""
+		"""My constructor. It calls the constructor of Characters"""
 
 		Characters.__init__(self, image_path, coordinates)
 		self.bag = 0
@@ -72,8 +69,8 @@ class Hero(Characters):
 
 		return x, y
 
-	def send_to_sleep(self, board_game, TheGuardian, arrival_coordinates):
+	def send_to_sleep(self, board_game, the_guardian, arrival_coordinates):
 		"""Function that sends the guardian to sleep"""
 
-		board_game.empty_places.append(TheGuardian.coordinates)
+		board_game.empty_places.append(the_guardian.coordinates)
 		board_game.empty_places.append(arrival_coordinates)

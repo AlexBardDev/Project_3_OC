@@ -1,8 +1,8 @@
 """
-Script that creates the board game. It generates the labyrinth.
-"""
+Script that creates the board game.
 
-#import standard library
+Labyrinth initializes and displays the board game.
+"""
 
 #import external library
 import pygame
@@ -47,8 +47,8 @@ class Labyrinth:
 
 		#Some special places to remove
 		self.empty_places.remove(arrival_coordinates)
-		self.empty_places.remove(MacGyver_coordinates)
-		self.empty_places.remove(TheGuardian_coordinates)
+		self.empty_places.remove(macgyver_coordinates)
+		self.empty_places.remove(the_guardian_coordinates)
 
 	def display_labyrinth(self, screen):
 		"""Function that displays the labyrinth"""

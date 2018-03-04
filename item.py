@@ -1,5 +1,5 @@
 """
-Script that creates all the items of the game.
+Script that creates all the items of the game. There are derived from Item.
 """
 
 #import standard library
@@ -7,8 +7,6 @@ import random
 
 #import external library
 import pygame
-
-#import local library
 
 #Initialization of the pygame library
 pygame.init()
