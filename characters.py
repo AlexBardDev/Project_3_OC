@@ -1,7 +1,8 @@
 """
 Script that contains the classes from which all the characters are derived.
 
-There are 3 classes. 'Characters' is the base class of all the characters. 'Guardian' and 'Hero' are derived classes from 'Characters'.
+There are 3 classes. 'Characters' is the base class of all the characters. 
+'Guardian' and 'Hero' are derived classes from 'Characters'.
 """
 
 #import external library

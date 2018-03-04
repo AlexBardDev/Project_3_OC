@@ -16,11 +16,11 @@ hero_image_path = "images/Hero.png"
 macgyver_coordinates = (120, 360)
 
 guardian_image_path = "images/Guardian.png"
-the_guardian_coordinates =(280,40)
+the_guardian_coordinates =(280, 40)
 
 #2 special coordinates
-arrival_coordinates = (280,0)
-fight_coordinates = (320,40)
+arrival_coordinates = (280, 0)
+fight_coordinates = (320, 40)
 
 #Constants for the items
 needle_image_path = "images/needle.png"

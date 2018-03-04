@@ -21,7 +21,7 @@ class Item:
 		"""My constructor"""
 
 		self.image = pygame.image.load(image_path).convert_alpha()
-		self.coordinates = (0,0)
+		self.coordinates = (0, 0)
 
 		self.generate_coordinates(board_game)
 		Item.LIST_ITEMS.append(self)
@@ -36,3 +36,4 @@ class Item:
 		"""Function that positions the item"""
 
 		screen.blit(self.image, self.coordinates)
+		

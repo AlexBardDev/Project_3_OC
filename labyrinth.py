@@ -39,9 +39,9 @@ class Labyrinth:
 					image_path = self.wall
 				else:
 					image_path = self.tile
-					self.empty_places.append((i,j))
+					self.empty_places.append((i, j))
 				square = pygame.image.load(image_path).convert()
-				screen.blit(square, (i,j))
+				screen.blit(square, (i, j))
 				i += 40
 			j += 40
 
@@ -65,6 +65,6 @@ class Labyrinth:
 				else:
 					image_path = self.tile
 				square = pygame.image.load(image_path).convert()
-				screen.blit(square, (i,j))
+				screen.blit(square, (i, j))
 				i += 40
 			j += 40

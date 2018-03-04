@@ -79,14 +79,14 @@ while active:
 			x, y = macgyver.move(event)
 
 			#Empty place without a wall, a character or an item
-			if (x,y) in board_game.empty_places:
-				board_game.empty_places.remove((x,y))
+			if (x, y) in board_game.empty_places:
+				board_game.empty_places.remove((x, y))
 				modif = True
 
 			#Place where there is an item
-			elif (x,y) in [item.coordinates for item in Item.LIST_ITEMS]:
+			elif (x, y) in [item.coordinates for item in Item.LIST_ITEMS]:
 				macgyver.bag += 1
-				Item.LIST_ITEMS = [item for item in Item.LIST_ITEMS if item.coordinates != (x,y)]
+				Item.LIST_ITEMS = [item for item in Item.LIST_ITEMS if item.coordinates != (x, y)]
 				modif = True
 
 			#Place where there is an obstacle
@@ -96,7 +96,7 @@ while active:
 			#Move
 			if modif == True:
 				board_game.empty_places.append(macgyver.coordinates)
-				macgyver.coordinates = (x,y)
+				macgyver.coordinates = (x, y)
 
 #End of the game
 if macgyver.win == True:
@@ -106,7 +106,7 @@ else:
 
 #Display the right panel
 panel = pygame.image.load(path).convert()
-screen.blit(panel, (100,200))
+screen.blit(panel, (100, 200))
 pygame.display.flip()
 
 #Wait 3 seconds
